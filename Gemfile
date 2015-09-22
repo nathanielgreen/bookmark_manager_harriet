@@ -12,5 +12,4 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'sinatra'
 
-
 end
