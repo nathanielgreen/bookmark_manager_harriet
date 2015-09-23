@@ -13,5 +13,4 @@ group :development do
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
 
-
 end
