@@ -13,14 +13,17 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    Link.create(url: params[:url], title: params[:title])
+    link = Link.new(url: params[:url], title: params[:title])
+    tag = Tag.create(name: params[:tag])
+    link.tags << tag
+    link.save
     redirect '/links'
   end
 
   get '/links/new' do
     erb :'links/new'
   end
-
+#1
 run! if app_file == BookmarkManager
 
 end
