@@ -1,6 +1,7 @@
 require 'capybara/rspec'
 require './app/app'
 require './app/data_mapper_setup'
+require 'database_cleaner'
 
 ENV['RACK_ENV'] = 'test'
 
