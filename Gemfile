@@ -10,6 +10,7 @@ gem 'data_mapper'
 group :test do
 
   gem 'rspec'
+  # gem 'byebug'
   gem 'capybara'
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
