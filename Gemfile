@@ -11,7 +11,7 @@ gem 'dm-postgres-adapter'
 # group :test do
 
   gem 'rspec'
-  # gem 'byebug'
+  gem 'byebug'
   gem 'capybara'
   gem 'database_cleaner'
 # end
