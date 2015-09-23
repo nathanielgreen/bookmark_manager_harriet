@@ -2,9 +2,10 @@ require 'capybara/rspec'
 require './app/app'
 
 ENV['RACK_ENV'] = 'test'
-require './app/data_mapper_setup'
-require 'database_cleaner'
 
+require './app/data_mapper_setup'
+
+require 'database_cleaner'
 
 # require File.join(File.dirname(__FILE__), '../..', 'app/app.rb')
 
