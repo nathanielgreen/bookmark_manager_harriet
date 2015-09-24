@@ -12,7 +12,14 @@ class BookmarkManager < Sinatra::Base
     def current_user
       User.get(session[:user_id])
     end
+
+    def user_params
+      User.get(session[:email])
+      User.get(session[:password])
+      User.get(session[:password_confirmation])
+    end
   end
+
 
   get '/' do
     erb :homepage
