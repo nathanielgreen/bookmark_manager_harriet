@@ -2,7 +2,6 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
-
 class BookmarkManager < Sinatra::Base
 
   enable :sessions
