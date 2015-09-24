@@ -1,6 +1,5 @@
 require 'data_mapper'
 require './app/data_mapper_setup'
-# require_relative 'tag'
 
 class Link
   include DataMapper::Resource
