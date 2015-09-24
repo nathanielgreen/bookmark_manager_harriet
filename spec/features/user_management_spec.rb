@@ -24,14 +24,20 @@ def sign_up(user)
     user = create(:user, password_confirmation: 'wrong')
     expect { sign_up user }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Please refer to the following errors below:'
   end
 
   scenario 'cant sign up without entering an email' do
     user = create(:user, email: '')
     expect { sign_up user }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Please enter an email'
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'I cannot sign up with an existing email' do
+    user = create(:user, email: 'alice@example.com')
+    expect { sign_up_as(user) }.to change(User, :count).by(0)
+    expect(page).to have_content('Email is already taken')
   end
 
 end

@@ -10,6 +10,7 @@ class User
   include DataMapper::Resource
 
   validates_confirmation_of :password
+  validates_uniqueness_of :email
 
   property :id, Serial
   property :email, String, required: true
