@@ -1,8 +1,9 @@
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require_relative 'data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
+  use Rack::MethodOverride
 
   enable :sessions
   register Sinatra::Flash
@@ -77,6 +78,12 @@ class BookmarkManager < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.next[:notice] = 'goodbye!'
+    redirect to('/links')
   end
 
 run! if app_file == BookmarkManager
